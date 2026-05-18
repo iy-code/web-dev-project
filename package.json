@@ -1,0 +1,18 @@
+{
+  "name": "smartflow-task-manager",
+  "version": "1.0.0",
+  "description": "Smart full-stack Notion-like Task Management Web Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "sqlite3": "^5.1.7"
+  },
+  "author": "SmartFlow Dev Team",
+  "license": "ISC"
+}

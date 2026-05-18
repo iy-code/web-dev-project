@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-slate-800 bg-slate-50 dark:text-slate-100 dark:bg-slate-900;
+  }
+
+  /* Thin Minimal Workspace Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 dark:bg-slate-700/60 rounded-full hover:bg-slate-300 dark:hover:bg-slate-600;
+  }
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  @apply backdrop-blur-md bg-white/80 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/50 shadow-sm;
+}
+
+/* Custom Google Tasks Checkboxes */
+.custom-checkbox {
+  @apply w-5 h-5 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center cursor-pointer transition-all duration-200 text-transparent hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/10;
+}
+.custom-checkbox.checked {
+  @apply border-green-600 bg-green-600 text-white dark:border-green-500 dark:bg-green-500;
+}
+.custom-checkbox svg {
+  @apply w-3.5 h-3.5 transition-transform duration-200 scale-0;
+}
+.custom-checkbox.checked svg {
+  @apply scale-100;
+}
+
+/* Striking completed tasks */
+.task-title-completed {
+  @apply line-through text-slate-400 dark:text-slate-500 transition-all duration-300;
+}
+
+/* Premium Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseBorder {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+.badge-pulse {
+  animation: pulseBorder 2s infinite;
+}
+
+/* Calendar styling overrides for premium SaaS look */
+.fc {
+  --fc-button-bg-color: #2563EB;
+  --fc-button-border-color: #2563EB;
+  --fc-button-hover-bg-color: #1D4ED8;
+  --fc-button-hover-border-color: #1D4ED8;
+  --fc-button-active-bg-color: #1E40AF;
+  --fc-button-active-border-color: #1E40AF;
+  --fc-border-color: rgba(226, 232, 240, 0.8);
+  font-family: 'Outfit', sans-serif;
+}
+.dark .fc {
+  --fc-border-color: rgba(51, 65, 85, 0.5);
+  --fc-today-bg-color: rgba(30, 41, 59, 0.5);
+}
+.fc .fc-toolbar-title {
+  @apply text-sm font-bold text-slate-800 dark:text-white uppercase tracking-wider;
+}
+.fc .fc-col-header-cell-cushion {
+  @apply text-xs font-bold text-slate-500 dark:text-slate-400 py-2 block uppercase tracking-wider;
+}
+.fc .fc-daygrid-day-number {
+  @apply text-xs font-bold text-slate-600 dark:text-slate-300 p-2 block;
+}
+.fc-theme-standard td, .fc-theme-standard th {
+  border: 1px solid var(--fc-border-color) !important;
+}
+.fc-event {
+  @apply text-[10px] font-bold rounded-lg border-0 shadow-sm py-1 px-1.5 cursor-pointer hover:opacity-90 transition-opacity;
+}
