@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

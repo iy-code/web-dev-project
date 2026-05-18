@@ -29,33 +29,56 @@ Instead of heavy Java JSP setups requiring complex Tomcat configurations, JDK in
 
 ## 🚀 Step-by-Step Run Instructions
 
-Since all node packages have already been successfully installed, starting and viewing your project takes less than 5 seconds:
+When cloning this project on a new computer, follow these simple setup steps to run the application:
 
-### Step 1: Launch the Local Server
-Open your terminal in the workspace directory (`c:\Users\yadav\OneDrive\Desktop\web dev mini porject`) and execute:
+### Step 1: Install Dependencies
+Open your terminal in the cloned repository root folder and install all required node modules for the root, backend, and frontend folders with a single command:
 ```bash
-npm start
-```
-This boots up the Express backend and sets up the local database:
-```text
-====================================================
-  SmartFlow Web Application started on port 3000
-  Access URL: http://localhost:3000
-====================================================
+npm run install-all
 ```
 
-### Step 2: Open in your Web Browser
-Open your browser and navigate to:
-```text
-http://localhost:3000
-```
+---
 
-### Step 3: Login with Seeded Demo Credentials
-The database has already seeded a default professional account so you can test all views instantly:
-* **Demo Email**: `demo@smartflow.com`
-* **Demo Password**: `password123`
+### 📦 Option A: Zero-Setup SQLite Architecture (Fastest)
 
-*(Note: You can also click "Create Account" to sign up with a fresh registration at any time!)*
+This boots up a self-contained full-stack server using Express and local SQLite. No database servers or complex configuration needed!
+
+1. **Launch the Server:**
+   From the repository root folder, run:
+   ```bash
+   npm start
+   ```
+2. **Access in Browser:**
+   Open [http://localhost:3000](http://localhost:3000)
+3. **Log in with Seeded Credentials:**
+   * **Demo Email:** `demo@smartflow.com`
+   * **Demo Password:** `password123`
+   *(Or click "Create Account" to register a new user!)*
+
+---
+
+### ⚡ Option B: React + MySQL Architecture
+
+This launches the separate modern React frontend and Express backend connected to a MySQL server.
+
+1. **Setup Environment Variables:**
+   - Go to the `backend/` directory.
+   - Copy `backend/.env.example` to `backend/.env`.
+   - Update your MySQL connection credentials in `backend/.env` (e.g. host, user, password, and database name).
+2. **Start the Backend Server:**
+   - Navigate to the `backend/` directory:
+     ```bash
+     cd backend
+     npm start
+     ```
+   - This automatically creates the MySQL database and relational tables.
+3. **Start the Frontend React App:**
+   - Open a separate terminal, navigate to the `frontend/` directory:
+     ```bash
+     cd frontend
+     npm run dev
+     ```
+   - Open the web app link shown in the terminal (usually [http://localhost:3000](http://localhost:3000)).
 
 ---
 
